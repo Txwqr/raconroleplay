@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İTFAİYE RP SİSTEMİ</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #c62828;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #1e1e1e;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .container {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .login-box, .form-box {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    input, textarea, button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #d32f2f;
+      color: white;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #1e1e1e;
+      color: #aaa;
+      text-align: center;
+      padding: 10px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>İTFAİYE RP SİSTEMİ</h1>
+    <p>Gerçekçi Rolplay Sistemi</p>
+  </header>
+
+  <nav>
+    <a href="#giris">Yetkili Giriş</a>
+    <a href="#basvuru">Başvuru</a>
+    <a href="#kurallar">Kurallar</a>
+  </nav>
+
+  <div class="container">
+
+    <section id="giris">
+      <h2>Yetkili Giriş Paneli</h2>
+      <div class="login-box">
+        <input type="text" placeholder="Kullanıcı Adı">
+        <input type="password" placeholder="Şifre">
+        <button onclick="alert('Giriş başarılı (görsel simülasyon)')">Giriş</button>
+      </div>
+    </section>
+
+    <section id="basvuru">
+      <h2>Başvuru Formu</h2>
+      <div class="form-box">
+        <input type="text" placeholder="İsim Soyisim (IC)">
+        <input type="text" placeholder="Yaş (IC)">
+        <textarea placeholder="Neden katılmak istiyorsunuz?"></textarea>
+        <button>Başvur</button>
+      </div>
+    </section>
+
+    <section id="kurallar">
+      <h2>Sunucu Kuralları</h2>
+      <ul>
+        <li>1. Rol dışı davranışlar yasaktır.</li>
+        <li>2. Yetkililere saygılı olunmalıdır.</li>
+        <li>3. Discord üzerinden verilen kurallar geçerlidir.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2025 İtfaiye RP Sunucusu | Tüm hakları saklıdır.
+  </footer>
+</body>
+</html>
