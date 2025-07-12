@@ -2,111 +2,233 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
+  <title>Racon Roleplay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>İTFAİYE RP SİSTEMİ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --main-color: #8B0000;
+      --accent-color: #d32f2f;
+      --bg-light: #f2f2f2;
+      --text-light: #222;
+      --bg-dark: #0d0d0d;
+      --text-dark: #e0e0e0;
+      --card-bg-light: #fff;
+      --card-bg-dark: #1a1a1a;
+      --transition-speed: 0.4s;
+    }
     body {
-      background-color: #121212;
-      color: white;
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
       margin: 0;
-      padding: 0;
     }
-    header {
-      background-color: #c62828;
-      padding: 20px;
-      text-align: center;
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
     }
-    nav {
-      background-color: #1e1e1e;
-      padding: 10px;
-      text-align: center;
+    .navbar {
+      background: var(--card-bg-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    nav a {
-      color: white;
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    .nav-links a,
+    .nav-links button {
+      padding: 10px 18px;
+      font-size: 15px;
+      font-weight: 600;
+      color: inherit;
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    .container {
-      padding: 30px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .login-box, .form-box {
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-    input, textarea, button {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #d32f2f;
-      color: white;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background: transparent;
       cursor: pointer;
     }
-    footer {
-      background-color: #1e1e1e;
-      color: #aaa;
-      text-align: center;
-      padding: 10px;
-      margin-top: 50px;
+    .nav-links a:hover,
+    .nav-links a.active,
+    .nav-links button:hover {
+      background: var(--main-color);
+      color: #fff;
+      border-color: var(--main-color);
+    }
+    .banner {
+      width: 100%;
+      height: 180px;
+      background: url('https://r.resimlink.com/oH29mOC.png') center/cover no-repeat;
+      border-bottom: 3px solid var(--main-color);
+      margin-bottom: 20px;
+    }
+    .divider {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, var(--main-color), var(--accent-color));
+    }
+    .divider.slide {
+      animation: slideIn 1s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    .content {
+      display: none;
+      padding: 20px 30px;
+    }
+    .content.active {
+      display: block;
+      background: var(--card-bg-light);
+      color: var(--text-light);
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      margin: 20px auto;
+      padding: 30px;
+      max-width: 900px;
+    }y
+  .styled-button {
+  background: linear-gradient(to right, var(--main-color), var(--accent-color));
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+    .styled-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+      @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .nav-links a,
+      .nav-links button {
+        padding: 8px 14px;
+        font-size: 14px;
+      }
+      .banner {
+        height: 120px;
+      }
+      .content {
+        padding: 15px;
+      }
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>İTFAİYE RP SİSTEMİ</h1>
-    <p>Gerçekçi Rolplay Sistemi</p>
-  </header>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+  <div class="navbar">
+    <div class="logo" style="display: flex; flex-direction: column; align-items: center;">
+      <img src="https://r.resimlink.com/IA-E5nRa04VH.png" alt="Logo" style="height: 40px; border-radius: 10px; margin-bottom: 4px;">
+      <span style="font-size: 14px; font-weight: 600; color: var(--main-color);">Racon Roleplay</span>
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active" onclick="showPage('anasayfa', this)">Anasayfa</a>
+      <a href="#" onclick="showPage('hakkimizda', this)">Hakkımızda</a>
+      <a href="#" onclick="showPage('kurallar', this)">Kurallar</a>
+      <a href="#" onclick="showPage('discord', this)">Discord</a>
+      <a href="#" onclick="showPage('yonetim', this)">Yönetim</a>
+      <a href="#" onclick="showPage('yapimci', this)">Yapımcı</a>
+      
+      <button id="darkModeToggle" onclick="toggleDarkMode()">☀️</button>
+    </div>
+  </div>
+  <div class="divider slide"></div>
+  <div class="banner"></div>
 
-  <nav>
-    <a href="#giris">Yetkili Giriş</a>
-    <a href="#basvuru">Başvuru</a>
-    <a href="#kurallar">Kurallar</a>
-  </nav>
-
-  <div class="container">
-
-    <section id="giris">
-      <h2>Yetkili Giriş Paneli</h2>
-      <div class="login-box">
-        <input type="text" placeholder="Kullanıcı Adı">
-        <input type="password" placeholder="Şifre">
-        <button onclick="alert('Giriş başarılı (görsel simülasyon)')">Giriş</button>
-      </div>
-    </section>
-
-    <section id="basvuru">
-      <h2>Başvuru Formu</h2>
-      <div class="form-box">
-        <input type="text" placeholder="İsim Soyisim (IC)">
-        <input type="text" placeholder="Yaş (IC)">
-        <textarea placeholder="Neden katılmak istiyorsunuz?"></textarea>
-        <button>Başvur</button>
-      </div>
-    </section>
-
-    <section id="kurallar">
-      <h2>Sunucu Kuralları</h2>
-      <ul>
-        <li>1. Rol dışı davranışlar yasaktır.</li>
-        <li>2. Yetkililere saygılı olunmalıdır.</li>
-        <li>3. Discord üzerinden verilen kurallar geçerlidir.</li>
-      </ul>
-    </section>
-
+  <div id="anasayfa" class="content active">
+    <h2>Hoş Geldiniz</h2>
+    <p>Merhaba değerli oyuncu! Seni burada görmek çok güzel. Burası Racon Roleplay — ER:LC'nin ilk resmi sitesi. Gerçekçi rol, disiplinli ekip ve kaliteli sunucu ortamı seni bekliyor!</p>
   </div>
 
-  <footer>
-    &copy; 2025 İtfaiye RP Sunucusu | Tüm hakları saklıdır.
-  </footer>
+  <div id="hakkimizda" class="content">
+  <h2>Hakkımızda</h2>
+  <p>Racon Roleplay, 2025 yılında kurulmuş ve Liberty County'de geçen bir ER:LC sunucusudur. Amacımız oyunculara kaliteli, disiplinli ve eğlenceli bir rol deneyimi sunmaktır. Jandarma, Emniyet, İtfaiye, Sağlık Bakanlığı, Belediye ve daha birçok meslek birimi ile oyunculara gerçekçi bir şehir hayatı sunuyoruz.</p>
+  <p>Sunucumuz, rol kalitesine büyük önem verir ve oyuncular arası saygıyı temel ilke olarak benimser. Yönetim ekibimiz ve yetkililerimiz her zaman aktif ve destekleyicidir.</p>
+</div>
+
+  <div id="kurallar" class="content">
+  <h2>Kurallar</h2>
+  <ul>
+    <li><strong>Rol Kuralları:</strong> Her zaman gerçekçi rol yapın, fail RP yapmaktan kaçının.</li>
+    <li><strong>Yetkiliye Saygı:</strong> Yetkililere karşı saygılı olun, emirlerine uyun.</li>
+    <li><strong>Taciz ve Hakaret:</strong> Sunucuda hiçbir şekilde küfür, hakaret veya tehdit içerikli konuşmaya izin verilmez.</li>
+    <li><strong>Hile ve Açık:</strong> Herhangi bir bug, hile veya açık kullanımı sunucudan süresiz uzaklaştırma sebebidir.</li>
+    <li><strong>Kuralları Oku:</strong> Detaylı kurallar Discord sunucumuzda mevcuttur, lütfen dikkatlice okuyun.</li>
+    <li><strong>EKLENECEK</li>
+  </ul>
+</div>
+
+  <div id="discord" class="content">
+  <h2>Discord</h2>
+  <p>Topluluğumuza katıl ve bizlerle iletişime geç!</p>
+  <a href="https://discord.gg/ornek" target="_blank" style="text-decoration:none;">
+    <button class="styled-button" style="background: linear-gradient(to right, #b71c1c, #d32f2f); color: white; border: none; border-radius: 12px; padding: 14px 28px; font-size: 16px; font-weight: bold; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: all 0.3s ease;">Sunucumuza Katıl</button>
+  </a>
+</div>
+
+  <div id="yonetim" class="content">
+    <h2>Kurucular</h2>
+    <p><strong>Founder :</strong> Efe Kaya</p>
+    <p><strong>Founder:</strong> Xyvaris</p>
+    <p><strong>Co-Founder:</strong> Gangaster</p>
+    <p><strong>Developer:</strong> OxyGeN</p>
+    <p><strong>Developer:</strong> squzext</p>
+  </div>
+
+  <div id="yapimci" class="content">
+    <h2>Yapımcı</h2>
+    <p>Bu site <strong>@.oxygen_1453.</strong> tarafından HTML/CSS ile kodlandı.</p>
+  </div>
+
+  
+  </div>
+
+  
+  </div>
+
+  
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const btn = document.getElementById('darkModeToggle');
+      btn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+    }
+
+    function showPage(id, el) {
+      document.querySelectorAll('.content').forEach(page => page.classList.remove('active'));
+      const activePage = document.getElementById(id);
+      if (activePage) activePage.classList.add('active');
+      document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+      if (el && el.tagName === 'A') el.classList.add('active');
+      const divider = document.querySelector('.divider');
+      divider.classList.remove('slide');
+      void divider.offsetWidth;
+      divider.classList.add('slide');
+    }
+  </script>
+
+</footer>
 </body>
 </html>
